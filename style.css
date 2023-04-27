@@ -4,7 +4,6 @@
 }
 
 .container {
-    /* padding-top: 10px; */
     display: flex;
     flex-direction: row;
     width: 100vw;
@@ -29,4 +28,8 @@
 
 .grid-item {
     outline: solid black 1px;
+}
+
+.color {
+    background-color: red;
 }
