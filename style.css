@@ -11,23 +11,22 @@
     height: 100vh;
 }
 
-.container .setting,.grid {
+.setting {
     flex: 1;
-}
-
-.container .setting {
     flex-grow: 0.10;
+    max-height: 100vh;
 }
 
-.sketch {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+.sketch-container {
+    flex: 1;
+    max-height: 100vh;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    grid-template-rows: repeat(16, 20px);
+    grid-template-columns: repeat(16, 20px);
 }
 
-.grid {
-    margin-top: 10px;
-    width: 10px;
-    height: 10px;
+.grid-item {
     outline: solid black 1px;
 }
