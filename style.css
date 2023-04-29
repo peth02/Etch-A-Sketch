@@ -2,6 +2,14 @@
     padding: 0;
     margin: 0;
 }
+:root {
+    /* --color: red; */
+    /* --color-rainbow: var(--color); */
+}
+
+body {
+    background-color: antiquewhite;
+}
 
 .container {
     display: flex;
@@ -14,12 +22,17 @@
     flex: 1;
     flex-grow: 0.10;
     max-height: 100vh;
+    border: solid 1px black;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 20px;
+}
+
+.setting div {
+    font-size: 32px;
 }
 
 button {
@@ -67,9 +80,15 @@ button:focus {
 }
 
 .grid-item {
+    background-color: #ffffff85;
     outline: solid black 1px;
 }
 
 .color {
+    /* background-color: var(--color); */
     background-color: red;
 }
+
+/* .rainbow {
+    background-color: var(--color-rainbow);
+} */
