@@ -2,10 +2,6 @@
     padding: 0;
     margin: 0;
 }
-:root {
-    /* --color: red; */
-    /* --color-rainbow: var(--color); */
-}
 
 body {
     background-color: antiquewhite;
@@ -33,6 +29,14 @@ body {
 
 .setting div {
     font-size: 32px;
+}
+
+#palette {
+    appearance: none;
+    width: 70px;
+    height: 20px;
+    border: none;
+    background-color: transparent;
 }
 
 button {
@@ -83,12 +87,3 @@ button:focus {
     background-color: #ffffff85;
     outline: solid black 1px;
 }
-
-.color {
-    /* background-color: var(--color); */
-    background-color: red;
-}
-
-/* .rainbow {
-    background-color: var(--color-rainbow);
-} */
