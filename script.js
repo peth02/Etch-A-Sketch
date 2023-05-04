@@ -1,16 +1,27 @@
 const sketch = document.querySelector(".sketch-container");
-// add grid
+//* add grid 16*16
+document.querySelector(":root").style.setProperty("--size", `16`);
 while(sketch.children.length != 16*16){
     let div = document.createElement("div");
     div.classList.add("grid-item");
     sketch.appendChild(div);
 }
-// function
+//* function 
 function toStringRGB(color) {
     let r = parseInt(color.substr(1,2), 16)
     let g = parseInt(color.substr(3,2), 16)
     let b = parseInt(color.substr(5,2), 16)
     return `rgb(${r}, ${g}, ${b})`;
+}
+function changeSize(value){
+    //! delete child
+    sketch.textContent = "";
+    document.querySelector(":root").style.setProperty("--size", `${value}`);
+    while(sketch.children.length != value*value){
+        let div = document.createElement("div");
+        div.classList.add("grid-item");
+        sketch.appendChild(div);
+    }
 }
 function toColor(color){
     rgbColor = toStringRGB(color);
@@ -33,7 +44,7 @@ function rainbowDiv(){
         });
     });
 }
-// function noirDiv(){
+// todo function noirDiv(){
 //     gridItem.forEach(item => {
 //         item.addEventListener("mouseover", () => {
 //             console.log(item.style.dataShade == undefined);
@@ -63,10 +74,22 @@ function eraseDiv(){
         });
     });
 }
-// start
-const gridItem = [...document.querySelectorAll(".grid-item")];
+//* start
+let gridItem = [...document.querySelectorAll(".grid-item")];
 let rgbColor = toStringRGB(document.querySelector("#palette").value);
-// palette
+//* size
+const size = document.querySelector("#size");
+size.addEventListener("input", (e) => {
+    let setting = document.querySelector(".setting");
+    let divSize = setting.children[1];
+    let value = e.target.value;
+    divSize.innerText = `${value}*${value}`;
+    changeSize(value);
+
+    //! reassign grid
+    gridItem = [...document.querySelectorAll(".grid-item")];
+});
+//* palette
 const palette = document.querySelector("#palette");
 palette.addEventListener("input", (input) => {
     console.log(input.type);
@@ -74,27 +97,27 @@ palette.addEventListener("input", (input) => {
     console.log(input.target.value);
     toColor(input.target.value);
 });
-// brush
+//* brush
 const brush = document.querySelector("#brush");
 brush.addEventListener("click", () => {
     colorDiv();
 });
-// eraser
+//* eraser
 const eraser = document.querySelector("#eraser");
 eraser.addEventListener("click", () => {
     eraseDiv();
 });
-// rainbow
+//* rainbow
 const rainbow = document.querySelector("#rainbow");
 rainbow.addEventListener("click", () => {
     rainbowDiv();
 });
-// noir
+//* noir
 // const noir = document.querySelector("#noir");
 // noir.addEventListener("click", () => {
 //     noirDiv();
 // });
-// clear
+//* clear
 const clear = document.querySelector("#clear");
 clear.addEventListener("click", () => {
     clearDiv();
