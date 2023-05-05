@@ -94,3 +94,7 @@ button:focus {
     background-color: #ffffff85;
     outline: solid black 1px;
 }
+
+#size {
+    width: 100px;
+}
